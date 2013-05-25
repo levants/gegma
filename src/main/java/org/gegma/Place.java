@@ -16,10 +16,15 @@ import org.gegma.exceptions.InvalidPathException;
 public class Place {
 
     private static Long idGenerator = 1L;
+
     private Long placeId = ++idGenerator;
+
     private String name;
+
     private Collection<Transition> inputs;
+
     private Collection<Connection> outputs;
+
     private GegmaProcess process;
 
     private Transition path;
