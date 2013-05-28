@@ -83,13 +83,12 @@ public abstract class Transition {
 	}
     }
 
+    public abstract void execute();
+
     public void fire() {
 
 	execute();
 	untokenize();
 	tokenize();
     }
-
-    public abstract void execute();
-
 }
