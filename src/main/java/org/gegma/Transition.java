@@ -44,6 +44,11 @@ public abstract class Transition {
 	}
     }
 
+    private boolean checkPlace(Place place) throws IOException {
+
+	return place.getPath().equals(this) && place.hasToken();
+    }
+
     public boolean isAvailable() throws IOException {
 	// Check all incoming places are tokens or not
 	Iterator<Place> places = inputs.iterator();
@@ -52,7 +57,7 @@ public abstract class Transition {
 	while (places.hasNext() && executable) {
 
 	    place = places.next();
-	    executable = place.getPath().equals(this) && place.hasToken();
+	    executable = checkPlace(place);
 	}
 
 	return executable;
