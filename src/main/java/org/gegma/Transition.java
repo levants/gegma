@@ -52,8 +52,7 @@ public abstract class Transition {
 	while (places.hasNext() && executable) {
 
 	    place = places.next();
-	    executable = place.hasToken();
-	    place.getPath().equals(this);
+	    executable = place.getPath().equals(this) && place.hasToken();
 	}
 
 	return executable;
