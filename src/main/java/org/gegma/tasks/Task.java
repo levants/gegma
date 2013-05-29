@@ -4,6 +4,11 @@ import org.gegma.Transition;
 
 public class Task extends Transition {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     private TaskAction action;
 
     private String name;

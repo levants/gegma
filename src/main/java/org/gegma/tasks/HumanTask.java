@@ -8,6 +8,11 @@ import org.gegma.Transition;
  */
 public class HumanTask extends Transition {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     private String ownerUser;
 
     private String ownerGroup;
