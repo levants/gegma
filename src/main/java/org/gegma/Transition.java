@@ -1,6 +1,7 @@
 package org.gegma;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -9,7 +10,12 @@ import java.util.Iterator;
  * 
  * @author rezo
  */
-public abstract class Transition {
+public abstract class Transition implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     private Collection<Place> inputs = new ArrayList<Place>();
 

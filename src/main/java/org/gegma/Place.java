@@ -1,6 +1,7 @@
 package org.gegma;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -13,7 +14,12 @@ import org.gegma.exceptions.InvalidPathException;
  * 
  * @author rezo
  */
-public class Place {
+public class Place implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     private static Long idGenerator = 1L;
 

@@ -1,6 +1,7 @@
 package org.gegma;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -12,7 +13,12 @@ import java.util.concurrent.ConcurrentMap;
  * 
  * @author rezo
  */
-public class GegmaProcess {
+public class GegmaProcess implements Serializable {
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
     private Long processId = new Random(System.currentTimeMillis()).nextLong();
 
