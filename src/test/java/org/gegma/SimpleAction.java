@@ -6,6 +6,11 @@ import org.gegma.tasks.TaskAction;
 
 public class SimpleAction implements TaskAction {
 
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
+
     private GegmaProcess process;
 
     private Map<String, Object> parameters;

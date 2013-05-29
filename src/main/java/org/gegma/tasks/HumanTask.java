@@ -25,6 +25,11 @@ public class HumanTask extends Transition {
 
     protected static final class DefaultAction implements TaskAction {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Override
 	public void execute() {
 	}
