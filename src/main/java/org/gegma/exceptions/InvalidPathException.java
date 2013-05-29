@@ -2,6 +2,14 @@ package org.gegma.exceptions;
 
 import java.io.IOException;
 
+import org.gegma.Place;
+
+/**
+ * {@link Exception} thrown if {@link Place} has not any valid outputs
+ * 
+ * @author levan
+ * 
+ */
 public class InvalidPathException extends IOException {
 
     /**
