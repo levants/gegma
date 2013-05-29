@@ -22,7 +22,7 @@ public class GegmaProcess {
 
     private Map<String, Object> parameters;
 
-    private boolean inWork = false;
+    private Boolean inWork = Boolean.FALSE;
 
     protected static final class DefaultListener implements ProcessListener {
 
@@ -66,7 +66,7 @@ public class GegmaProcess {
 
 	Long placeId = place.getPlaceId();
 	place.setToken();
-	tokens.put(placeId, place);
+	tokens.putIfAbsent(placeId, place);
     }
 
     public void startProcess(Place start) throws IOException {
@@ -120,13 +120,15 @@ public class GegmaProcess {
 
     public void doNext() throws IOException {
 
-	inWork = Boolean.TRUE;
-	Collection<Place> valids;
-	while (inWork) {
-	    valids = getValidPlaces();
-	    inWork = !valids.isEmpty();
-	    if (inWork) {
-		execute(valids);
+	synchronized (inWork) {
+	    inWork = Boolean.TRUE;
+	    Collection<Place> valids;
+	    while (inWork) {
+		valids = getValidPlaces();
+		inWork = !valids.isEmpty();
+		if (inWork) {
+		    execute(valids);
+		}
 	    }
 	}
     }
