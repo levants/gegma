@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.gegma.exceptions.InvalidPathException;
+import org.gegma.utils.ObjectUtils;
 
 /**
  * 
@@ -91,16 +92,21 @@ public class Place implements Serializable {
 	return process;
     }
 
+    private void setProcessToOutputs(GegmaProcess process) {
+
+	Transition output;
+	for (Connection connection : outputs) {
+	    output = connection.getOutput();
+	    if (output.getProcess() == null) {
+		output.setProcess(process);
+	    }
+	}
+    }
+
     public void setProcess(GegmaProcess process) {
 	this.process = process;
-	if (outputs != null) {
-	    Transition output;
-	    for (Connection connection : outputs) {
-		output = connection.getOutput();
-		if (output.getProcess() == null) {
-		    output.setProcess(process);
-		}
-	    }
+	if (ObjectUtils.notNull(outputs)) {
+	    setProcessToOutputs(process);
 	}
     }
 
@@ -154,7 +160,7 @@ public class Place implements Serializable {
     public boolean isValid() throws IOException {
 
 	Transition path = getPath();
-	boolean valid = (path != null && path.isAvailable());
+	boolean valid = (ObjectUtils.notNull(path) && path.isAvailable());
 
 	return valid;
     }
@@ -162,7 +168,7 @@ public class Place implements Serializable {
     public void next() throws IOException {
 
 	Transition path = getPath();
-	if (path != null) {
+	if (ObjectUtils.notNull(path)) {
 	    path.fire();
 	}
     }

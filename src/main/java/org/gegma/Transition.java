@@ -44,6 +44,7 @@ public abstract class Transition implements Serializable {
     }
 
     public void setProcess(GegmaProcess process) {
+
 	this.process = process;
 	for (Place place : outputs) {
 	    place.setProcess(process);

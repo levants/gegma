@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.gegma.tasks.HumanTask;
 import org.gegma.tasks.Task;
+import org.gegma.utils.ObjectUtils;
 
 /**
  * 
@@ -162,7 +163,7 @@ public class General {
 	    public boolean isValid(GegmaProcess process) {
 
 		Object validator = process.getParameters().get("valid");
-		boolean valid = validator != null
+		boolean valid = ObjectUtils.notNull(validator)
 			&& validator.equals(Boolean.TRUE);
 
 		return valid;
@@ -183,7 +184,7 @@ public class General {
 	    public boolean isValid(GegmaProcess process) {
 
 		Object validator = process.getParameters().get("abroad");
-		boolean valid = validator != null
+		boolean valid = ObjectUtils.notNull(validator)
 			&& validator.equals(Boolean.TRUE);
 
 		return valid;
@@ -216,7 +217,7 @@ public class General {
 
 			Object validator = process.getParameters().get(
 				"trip_signed");
-			boolean valid = validator != null
+			boolean valid = ObjectUtils.notNull(validator)
 				&& validator.equals(Boolean.TRUE);
 
 			return valid;
@@ -237,7 +238,7 @@ public class General {
 
 			Object validator = process.getParameters().get(
 				"central-finance");
-			boolean valid = validator != null
+			boolean valid = ObjectUtils.notNull(validator)
 				&& validator.equals(Boolean.TRUE);
 
 			return valid;
@@ -249,7 +250,7 @@ public class General {
 	    public boolean isValid(GegmaProcess process) {
 
 		Object validator = process.getParameters().get("local-finance");
-		boolean valid = validator != null
+		boolean valid = ObjectUtils.notNull(validator)
 			&& validator.equals(Boolean.TRUE);
 
 		return valid;
@@ -265,7 +266,7 @@ public class General {
 
 		Object validator = process.getParameters().get(
 			"finance-sighned");
-		boolean valid = validator != null
+		boolean valid = ObjectUtils.notNull(validator)
 			&& validator.equals(Boolean.TRUE);
 
 		return valid;
@@ -355,10 +356,10 @@ public class General {
 		ForUser forUser = new ForUser(process.getProcessId(),
 			place.getPlaceId(), task.getOwnerUser(),
 			task.getOwnerGroup(), task.getDescription());
-		if (task.getOwnerUser() != null) {
+		if (ObjectUtils.notNull(task.getOwnerUser())) {
 		    addCreateMapElement(userTasks, task.getOwnerUser(), forUser);
 		}
-		if (task.getOwnerGroup() != null) {
+		if (ObjectUtils.notNull(task.getOwnerGroup())) {
 		    addCreateMapElement(groupTasks, task.getOwnerGroup(),
 			    forUser);
 		}
