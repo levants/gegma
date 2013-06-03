@@ -1,0 +1,14 @@
+<WorkflowProcess id="vacatioins">
+	<Activities>
+		<Activity id="register">
+			<TransitionRestrictions>
+				<TransitionRestriction>
+					<Split Type="AND">
+						<TransitionRefs>
+							<TransitionRef id="Validate" />
+						</TransitionRefs>
+					</Split>
+				</TransitionRestriction>
+		</Activity>
+	</Activities>
+</WorkflowProcess>
